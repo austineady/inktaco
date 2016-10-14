@@ -1,0 +1,31 @@
+.h-center {
+  text-align: center !important; }
+
+.h-right {
+  text-align: right !important; }
+
+.h-margin-center {
+  margin: 0 auto !important; }
+
+.h-font-light {
+  font-weight: 300 !important; }
+
+.h-font-medium {
+  font-weight: 500 !important; }
+
+.h-font-bold {
+  font-weight: 700 !important; }
+
+body {
+  background: url("../images/bg-triangle-backdrop.jpg") center center cover no-repeat #ffffff;
+  height: 100%;
+  overflow-x: hidden;
+  width: 100%; }
+
+body {
+  font-family: 'Roboto', sans-serif; }
+
+.hero__logo {
+  width: 77px; }
+
+/*# sourceMappingURL=app.css.map */
