@@ -16,8 +16,10 @@
 .h-font-bold {
   font-weight: 700 !important; }
 
+.vertical-padding {
+  padding: 30px 0; }
+
 body {
-  background: url("../images/bg-triangle-backdrop.jpg") center center cover no-repeat #ffffff;
   height: 100%;
   overflow-x: hidden;
   width: 100%; }
@@ -25,7 +27,135 @@ body {
 body {
   font-family: 'Roboto', sans-serif; }
 
-.hero__logo {
+.container {
+  max-width: 1200px;
+  margin: 0 auto; }
+
+.backdrop {
+  background-image: url("../images/bg-triangle-backdrop.jpg"), -webkit-radial-gradient(50% 50%, circle, rgba(255, 255, 255, 0), white);
+  background-image: url("../images/bg-triangle-backdrop.jpg"), radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0), white);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-color: #ffffff;
+  width: 100%;
+  height: 100%; }
+
+.brand-logo {
+  position: relative;
+  top: 20px;
   width: 77px; }
+
+.hero {
+  height: 660px;
+  box-shadow: 0 30px 50px -10px rgba(0, 0, 0, 0.7);
+  clear: both;
+  width: 100%; }
+  .hero__background {
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    float: left;
+    width: 50%;
+    height: 100%; }
+  .hero__background--main {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../images/bg-man-with-grey-hoodie.jpg"); }
+  .hero__background--secondary {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../images/bg-woman-with-grey-hoodie.jpg"); }
+
+.logo-bar {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: distribute;
+  -moz-box-pack: distribute;
+  box-pack: distribute;
+  -webkit-justify-content: space-around;
+  -moz-justify-content: space-around;
+  -ms-justify-content: space-around;
+  -o-justify-content: space-around;
+  justify-content: space-around;
+  -ms-flex-pack: distribute;
+  -webkit-box-align: stretch;
+  -moz-box-align: stretch;
+  box-align: stretch;
+  -webkit-align-items: stretch;
+  -moz-align-items: stretch;
+  -ms-align-items: stretch;
+  -o-align-items: stretch;
+  align-items: stretch;
+  -ms-flex-align: stretch;
+  -webkit-box-lines: no-wrap;
+  -moz-box-lines: no-wrap;
+  box-lines: no-wrap;
+  -webkit-flex-wrap: no-wrap;
+  -moz-flex-wrap: no-wrap;
+  -ms-flex-wrap: no-wrap;
+  flex-wrap: no-wrap;
+  height: 90px;
+  margin: 90px auto; }
+  .logo-bar__image {
+    -webkit-box-flex: 0;
+    -moz-box-flex: 0;
+    box-flex: 0;
+    -webkit-flex: 0 1 auto;
+    -moz-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: center;
+    -moz-align-self: center;
+    align-self: center;
+    -ms-flex-item-align: center; }
+  .logo-bar__image--rect {
+    width: 185px;
+    height: 56px; }
+  .logo-bar__image--square {
+    width: 97px;
+    height: 87px; }
+
+.feature-deck {
+  color: #6a6a6a; }
+  .feature-deck__heading {
+    font-size: 40px; }
+  .feature-deck__divider {
+    background-color: #5f7bff;
+    height: 2px;
+    margin: 20px auto 0;
+    width: 100px; }
+  .feature-deck__icon {
+    color: #5f7bff;
+    font-weight: 300;
+    font-size: 70px; }
+  .feature-deck__icon-heading {
+    font-size: 30px;
+    margin-top: 15px; }
+  .feature-deck__icon-description {
+    font-size: 15px;
+    margin-top: 15px; }
+
+.product-carousel {
+  height: 760px; }
+
+.product {
+  outline: none; }
+  .product__description {
+    text-align: center;
+    visibility: hidden;
+    height: 0; }
+  .product__image {
+    position: relative;
+    top: 100px;
+    transition: top .7s; }
+
+.product.slick-active .product__description {
+  visibility: visible;
+  height: auto;
+  transition: height .7s; }
+.product.slick-active .product__image {
+  top: 0; }
 
 /*# sourceMappingURL=app.css.map */
