@@ -10,6 +10,7 @@
     <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="assets/vendor/slick/slick.css">
     <link rel="stylesheet" href="assets/vendor/slick/slick-theme.css">
+    <script src="assets/js/vendor/modernizr-custom.js"></script>
     <link rel="stylesheet" href="assets/css/app.css">
   </head>
   <body>
@@ -27,12 +28,21 @@
         <div class="hero__background hero__background--main"></div>
         <div class="hero__background hero__background--secondary"></div>
 
-        <div class="row small-collapse">
+        <div class="hero__text-box">
 
-        </div><!-- /.row -->
+          <div class="hero__content">
+            <h2 class="hero__text">
+              Premium, custom <span class="js-text-hook hero__changing-text"></span> for less
+            </h2>
+            <!-- <div class="typed-cursor"></div> -->
+            <input type="text" class="hero__email-input" placeholder="Enter your email address">
+            <span class="hero__quote-button">Get Your FREE Quote</span>
+          </div><!-- /.hero__content -->
+
+        </div><!-- /.hero__text-box -->
       </section><!-- /.hero -->
 
-      <section class="container logo-bar">
+      <section class="container logo-bar js-logo-bar">
           <img src="/assets/images/logo-haymaker.png" alt="" class="logo-bar__image logo-bar__image--rect">
           <img src="/assets/images/logo-intrepid.png" alt="" class="logo-bar__image logo-bar__image--square">
           <img src="/assets/images/logo-improv.png" alt="" class="logo-bar__image logo-bar__image--rect">
@@ -75,7 +85,7 @@
             <h4 class="product__title">VentureApp</h4>
             <h5 class="product__type">Charcoal Black Triblend</h5>
             <h5 class="product__details">3 color imprint</h5>
-            <h6 class="product__contact">Contact us about a similar product</h6>
+            <h6 class="product__contact">Contact us about a similar&nbsp;product</h6>
           </div>
         </div>
 
@@ -123,9 +133,24 @@
           </div><!-- /.small-12 medium-3 -->
         </div><!-- /.row -->
       </section><!-- /.container feature-deck -->
+
+      <section class="container footer">
+        <div class="row">
+          <div class="small-12 column h-center">
+            <p class="footer__text">
+              Let us make your custom<br /><span class="js-text-hook footer__changing-text">t-shirts</span><br /> everyone's&nbsp;favorite
+            </p>
+            <br />
+            <span class="footer__contact-button">Contact Us Now</span>
+            <br />
+            <p class="footer__legal">&copy; 2016 Ink Taco LLC. All&nbsp;Rights&nbsp;Reserved.<br /><span class="h-underline">Designed in Charlotte</span></p>
+          </div>
+        </div>
+      </section>
     </div><!-- /.backdrop -->
 
     <script src="assets/js/vendor/jquery.js"></script>
+    <script src="assets/js/vendor/typed.min.js"></script>
     <script src="assets/js/vendor/what-input.js"></script>
     <script src="assets/js/vendor/foundation.js"></script>
     <script src="assets/vendor/slick/slick.min.js"></script>

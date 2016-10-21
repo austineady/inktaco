@@ -37,6 +37,10 @@ $roboto:                      'Roboto', sans-serif;
   font-weight: 700 !important;
 }
 
+.h-underline {
+  text-decoration: underline;
+}
+
 .vertical-padding {
   padding: 30px 0;
 }
@@ -61,7 +65,7 @@ body {
 }
 
 .backdrop {
-  @include background-image(url('../images/bg-triangle-backdrop.jpg'), radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)));
+  background: linear-gradient(to top, rgba(255, 255, 255, .4), rgba(255, 255, 255, .2)), url('../images/bg-triangle-backdrop.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -74,13 +78,19 @@ body {
   position: relative;
   top: 20px;
   width: 77px;
+  z-index: 10;
 }
 
 .hero {
-  height: 660px;
+  height: 540px;
   box-shadow: 0 30px 50px -10px rgba(0, 0, 0, .7);
   clear: both;
   width: 100%;
+  position: relative;
+
+  @media screen and (min-width: 500px) {
+    height: 660px;
+  }
 
   &__background {
     background-position: top center;
@@ -89,6 +99,10 @@ body {
     float: left;
     width: 50%;
     height: 100%;
+
+    @media screen and (max-width: 800px) {
+      width: 100%;
+    }
   }
 
   &__background--main {
@@ -97,35 +111,144 @@ body {
 
   &__background--secondary {
     background-image: linear-gradient(to right, rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url('../images/bg-woman-with-grey-hoodie.jpg');
+
+    @media screen and (max-width: 800px) {
+      display: none;
+    }
+  }
+
+  &__text-box {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    position: absolute;
+    top: 50px;
+
+    @media screen and (min-width: 500px) {
+      top: 150px;
+    }
+  }
+
+  &__content {
+    max-width: 530px;
+    padding: 0 15px;
+    margin: 0 auto;
+  }
+
+  &__text {
+    color: $white;
+    float: left;
+    font-size: 60px;
+    margin-bottom: 25px;
+    text-align: center;
+    line-height: 1.2;
+
+    @media screen and (min-width: 500px) {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__changing-text {
+    letter-spacing: 2px;
+    display: inline-block;
+    width: 220px;
+    max-width: 275px;
+  }
+
+  &__email-input {
+    width: 275px;
+    float: left;
+    font-size: 15px;
+    height: 45px;
+    padding: 15px 20px;
+    border-radius: 4px;
+    color: $grey;
+    outline: none;
+    margin-right: 20px;
+
+    @media screen and (max-width: 560px) {
+      display: block;
+      float: none;
+      margin: 0 auto;
+    }
+  }
+
+  &__quote-button {
+    color: $primary-color;
+    cursor: pointer;
+    float: right;
+    background-color: $white;
+    padding: 16px 30px;
+    font-size: 15px;
+    position: relative;
+    text-align: center;
+    bottom: 5px;
+
+    &:hover {
+      background-color: darken($white, 2%);
+    }
+
+    @media screen and (max-width: 560px) {
+      float: none;
+      margin: 10px auto;
+      top: 40px;
+    }
   }
 } // hero
 
 .logo-bar {
-  @include display(flex);
-  @include justify-content(space-around);
-  @include align-items(stretch);
-  @include flex-wrap(no-wrap);
   height: 90px;
-  margin: 90px auto;
+  line-height: 90px;
+  max-width: 1200px;
+  margin: 90px auto 30px;
+  text-align: center;
+
+  @media screen and (min-width: 500px) {
+    margin: 90px auto;
+  }
 
   &__image {
-    @include flex(0 1 auto);
-    @include align-self(center);
+    display: inline-block;
+    margin: 0 10px;
+
+    @media screen and (min-width: 500px) {
+      margin: 0 50px;
+    }
   }
 
   &__image--rect {
     width: 185px;
+    max-width: 185px;
     height: 56px;
   }
 
   &__image--square {
     width: 97px;
+    max-width: 97px;
     height: 87px;
+    margin: 0 30px;
+
+    @media screen and (min-width: 500px) {
+      margin: 0 auto;
+    }
   }
 } // logo-bar
 
 .feature-deck {
   color: $grey;
+  margin-top: 25px;
+
+  @media screen and (min-width: 500px) {
+    margin-top: 150px;
+  }
+
+  .small-12 {
+    margin-top: 30px;
+
+    @media screen and (min-width: 500px) {
+      margin-top: 0;
+    }
+  }
 
   &__heading {
     font-size: 40px;
@@ -156,32 +279,164 @@ body {
 } // feature-deck
 
 .product-carousel {
-  height: 760px;
+  height: 550px;
+  margin-top: 50px;
+  max-height: 850px;
+  position: relative;
+
+  @media screen and (min-width: 500px) {
+    margin-top: 150px;
+    height: 760px;
+  }
 }
 
 .product {
   outline: none;
 
   &__description {
+    color: $primary-color;
+    background-color: rgba(255, 255, 255, .7);
     text-align: center;
     visibility: hidden;
     height: 0;
+    width: 280px;
+    margin: 0 auto;
+    position: relative;
+    bottom: 50px;
+    left: -10px;
+
+    @media screen and (min-width: 350px) {
+      left: 0;
+    }
+
+    @media screen and (min-width: 500px) {
+      width: 400px;
+      bottom: 100px;
+    }
   }
 
   &__image {
     position: relative;
     top: 100px;
+    width: 370px;
+    margin: 0 auto;
     transition: top .7s;
+    z-index: 3;
+
+    @media screen and (min-width: 500px) {
+      width: 470px;
+    }
+  }
+
+  &__contact {
+    text-decoration: underline;
+    margin-top: 30px;
   }
 }
 
 .product.slick-active {
   .product__description {
     visibility: visible;
-    height: auto;
+    min-height: 240px;
     transition: height .7s;
+    border: 5px solid $primary-color;
+    padding: 50px 25px;
+
+    @media screen and (min-width: 500px) {
+      padding: 100px 0;
+      min-height: 315px;
+    }
   }
   .product__image {
     top: 0;
   }
+}
+
+/* .typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+} */
+
+.footer {
+  margin-top: 50px;
+
+  @media screen and (min-width: 500px) {
+    margin-top: 150px;
+  }
+
+  &__text {
+    color: $grey;
+    font-size: 30px;
+    padding: 0 30px;
+
+    @media screen and (min-width: 500px) {
+      padding: 0;
+    }
+  }
+  &__changing-text {
+    color: $primary-color;
+  }
+  &__contact-button {
+    background-color: $primary-color;
+    color: $white;
+    cursor: pointer;
+    font-size: 15px;
+    margin-top: 15px;
+    padding: 15px 70px;
+    text-align: center;
+
+    &:hover {
+      background-color: lighten($primary-color, 2%);
+    }
+  }
+  &__legal {
+    color: $primary-color;
+    font-size: 18px;
+    margin-top: 50px;
+  }
+}
+
+.icon {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 80px;
+}
+
+.icon-cash-dollar {
+  background-image: url('../icons/icon-cash-dollar.png');
+}
+
+.svg .icon-cash-dollar {
+  background-image: url('../icons/icon-cash-collar.svg');
+  background-size: 80px 80px;
+  width: 80px;
+}
+
+.icon-picture {
+  background-image: url('../icons/icon-picture.png');
+}
+
+.svg .icon-picture {
+  background-image: url('../icons/icon-picture.svg');
+  background-size: 70px 70px;
+  width: 70px;
+  height: 70px;
 }
