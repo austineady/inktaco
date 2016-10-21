@@ -6,25 +6,38 @@ $(document).ready(function() {
   centerMode: true,
   centerPadding: '150px',
   slidesToShow: 1,
+  slidesToScroll: 3,
   responsive: [
     {
       breakpoint: 800,
       settings: {
         arrows: false,
         centerMode: true,
-        centerPadding: '40px',
+        centerPadding: '100px',
         slidesToShow: 1,
-        slidesToScroll: 3
+        slidesToScroll: 3,
       }
     },
     {
-      breakpoint: 500,
+      breakpoint: 600,
       settings: {
         arrows: false,
         centerMode: true,
-        centerPadding: '30px',
+        centerPadding: '80px',
         slidesToShow: 1,
-        slidesToScroll: 3
+        slidesToScroll: 3,
+      }
+    },
+    {
+      breakpoint: 450,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '50px',
+        slidesToShow: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        cssEase: 'ease-out'
       }
     }
   ]
@@ -52,7 +65,7 @@ $('.js-logo-bar').slick({
   ]
 });
 
-function startTextRotation() {
+(function startTextRotation() {
   var $textHook = $(".js-text-hook");
   $textHook.typed({
     strings: ["t-shirts", "jackets", "hoodies"],
@@ -60,7 +73,6 @@ function startTextRotation() {
     loop: true,
     showCursor: false
   });
-}
+})()
 
-startTextRotation();
 })
