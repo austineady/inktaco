@@ -32,7 +32,8 @@ body {
 
 .container {
   max-width: 1200px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  background-color: #ffffff; }
 
 .backdrop {
   background: linear-gradient(to top, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2)), url("../images/bg-triangle-backdrop.jpg");
