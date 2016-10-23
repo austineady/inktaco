@@ -64,27 +64,38 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-/* .content-wrap {
-  background-color: $white;
-  width: 100%;
-  height: 100%;
-  min-width: 320px;
-} */
+body.modal-active {
+  overflow-y: hidden;
+}
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* .backdrop {
-  background: linear-gradient(to top, rgba(255, 255, 255, .4), rgba(255, 255, 255, .2)), url('../images/bg-triangle-backdrop.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
+.bg-slice-backdrop {
   background-color: $white;
-  width: 100%;
-  height: 100%;
-} */
+  background-image: url('../images/bg-slice-backdrop.jpg');
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: 100% 50%;
+  padding: 90px 0 30px;
+
+  @media screen and (min-width: 1200px) {
+    background-size: 100% 70%;
+    padding-top: 30px;
+  }
+}
+
+.bg-slice-backdrop--reverse {
+  background-image: url('../images/bg-slice-backdrop-reverse.png');
+  background-size: 100% 50%;
+  padding: 50px 0 0;
+
+  @media screen and (min-width: 1200px) {
+    padding-top: 30px;
+  }
+}
 
 .brand-logo {
   position: relative;
@@ -211,8 +222,8 @@ body {
 .logo-bar {
   height: 90px;
   line-height: 90px;
+  margin: 0 auto;
   max-width: 1200px;
-  margin: 90px auto 30px;
   text-align: center;
 
   @media screen and (min-width: 500px) {
@@ -220,11 +231,34 @@ body {
   }
 
   &__image {
+    @include transition(opacity .5s linear);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100%;
     display: inline-block;
+    outline: none;
     margin: 0 10px;
 
-    @media screen and (min-width: 500px) {
-      margin: 0 50px;
+    @media screen and (min-width: 800px) {
+      margin: 0 30px;
+    }
+
+    @media screen and (min-width: 1200px) {
+      margin: 0 70px;
+    }
+
+
+
+    &.slick-slide {
+      opacity: .4;
+
+      @media screen and (min-width: 800px) {
+        margin: 0 50px;
+      }
+    }
+
+    &.slick-slide.slick-active {
+      opacity: 1;
     }
   }
 
@@ -232,32 +266,57 @@ body {
     width: 185px;
     max-width: 185px;
     height: 56px;
+
+    &.slick-slide {
+      position: relative;
+      top: 25px; // center the image
+    }
   }
 
   &__image--square {
     width: 97px;
     max-width: 97px;
-    height: 87px;
+    height: 97px;
     margin: 0 30px;
 
-    @media screen and (min-width: 500px) {
+    @media screen and (min-width: 800px) {
       margin: 0 auto;
     }
   }
+
+  &__image-haymaker {
+    background-image: url('../images/logo-haymaker.png');
+  }
+
+  &__image-intrepid {
+    background-image: url('../images/logo-intrepid.png');
+  }
+
+  &__image-improv {
+    background-image: url('../images/logo-improv.png');
+  }
+  &__image-bevspot {
+    background-image: url('../images/logo-bevspot.png');
+  }
+
+  &__image-venture {
+    background-image: url('../images/logo-venture.png');
+  }
+
 } // logo-bar
 
 .feature-deck {
   color: $grey;
-  margin-top: 25px;
+  padding-top: 25px;
 
   @media screen and (min-width: 500px) {
-    margin-top: 150px;
+    padding-top: 50px;
   }
 
   .small-12 {
     margin-top: 30px;
 
-    @media screen and (min-width: 500px) {
+    @media screen and (min-width: 690px) {
       margin-top: 0;
     }
   }
@@ -290,15 +349,24 @@ body {
   }
 } // feature-deck
 
+.feature-deck--white {
+  background-color: $white;
+}
+
 .product-carousel {
+  background-color: $white;
   height: 550px;
-  margin-top: 50px;
+  padding-top: 50px;
   max-height: 850px;
   position: relative;
 
   @media screen and (min-width: 500px) {
-    margin-top: 150px;
+    padding-top: 100px;
     height: 760px;
+  }
+
+  @media screen and (min-width: 800px) {
+    padding-top: 50px;
   }
 }
 
@@ -306,18 +374,18 @@ body {
   outline: none;
 
   &__description {
-    color: $primary-color;
     background-color: rgba(255, 255, 255, .7);
-    text-align: center;
-    visibility: hidden;
-    height: 0;
-    width: 100%;
-    min-width: 250px;
-    max-width: 375px;
-    margin: 0 auto;
-    position: relative;
     bottom: 50px;
+    color: $primary-color;
+    height: 0;
     left: -10px;
+    margin: 0 auto;
+    max-width: 375px;
+    min-width: 250px;
+    opacity: 0;
+    position: relative;
+    text-align: center;
+    width: 100%;
 
     @media screen and (min-width: 350px) {
       left: 0;
@@ -334,11 +402,12 @@ body {
   }
 
   &__image {
+    @include transition(top .3s linear);
     position: relative;
     top: 100px;
     width: 370px;
     margin: 0 auto;
-    transition: top .7s;
+    opacity: .3;
     z-index: 3;
 
     @media screen and (min-width: 500px) {
@@ -353,24 +422,31 @@ body {
 }
 
 .product.slick-active {
+  .product__image {
+    opacity: .6;
+  }
+}
+
+.product.slick-current {
   .product__description {
-    visibility: visible;
-    min-height: 240px;
-    transition: height .7s;
+    @include transition(opacity .5s);
     border: 5px solid $primary-color;
+    height: 50%;
     padding: 50px 25px;
+    opacity: 1;
 
     @media screen and (min-width: 500px) {
-      padding: 70px 15px;
       min-height: 275px;
+      padding: 70px 15px;
     }
 
     @media screen and (min-width: 700px) {
+      height: 315px;
       padding: 100px 15px;
-      min-height: 315px;
     }
   }
   .product__image {
+    opacity: 1;
     top: 0;
   }
 }
@@ -398,10 +474,11 @@ body {
 } */
 
 .footer {
-  margin-top: 50px;
+  background-color: $white;
+  padding-top: 50px;
 
   @media screen and (min-width: 500px) {
-    margin-top: 150px;
+    padding-top: 150px;
   }
 
   &__text {
@@ -415,6 +492,14 @@ body {
   }
   &__changing-text {
     color: $primary-color;
+    height: 50px;
+    display: block;
+
+    @media screen and (min-width: 800px) {
+      display: inline-block;
+      width: 130px;
+      height: auto;
+    }
   }
   &__contact-button {
     background-color: $primary-color;
@@ -436,11 +521,108 @@ body {
   }
 }
 
+.modal {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .8);
+  z-index: -100;
+
+  .h-underline {
+    color: $primary-color;
+  }
+
+  &__content {
+    @include transform(translateY(-50%));
+    background-color: $white;
+    border-radius: 5px;
+    color: $grey;
+    height: 550px;
+    margin: 0 auto;
+    min-width: 300px;
+    padding: 50px 90px;
+    position: absolute;
+    font-size: 15px;
+    top: 50%;
+    left: 1%;
+    width: 98%;
+    overflow: hidden;
+    text-align: center;
+
+    @media screen and (min-width: 500px) {
+      @include transform(translateY(30%));
+      width: 500px;
+      position: relative;
+      top: 30%;
+      left: auto;
+    }
+  }
+
+  &__headline {
+    font-size: 40px;
+    line-height: 1;
+  }
+
+  &__divider {
+    width: 35%;
+    border-color: $primary-color;
+  }
+
+  &__submit {
+    color: $white;
+    cursor: pointer;
+    background-color: $primary-color;
+    padding: 16px 30px;
+    max-width: 200px;
+    margin: 0 auto;
+    font-size: 15px;
+    position: relative;
+    text-align: center;
+
+    &:hover {
+      background-color: darken($primary-color, 2%);
+    }
+  }
+
+  &__name-input {
+    text-align: center;
+  }
+
+  &__email-input {
+    text-align: center;
+  }
+
+  &__textarea {
+    height: 85px;
+    max-height: 105px;
+    text-align: center;
+  }
+}
+
+.modal.is-active {
+  visibility: visible;
+  z-index: 100;
+}
+
 .icon {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
   height: 80px;
+  margin: 0 auto;
+}
+
+.icon-shirt {
+  background-image: url('../icons/icon-shirt.png');
+}
+
+.svg .icon-shirt {
+  background-image: url('../icons/icon-shirt.svg');
+  background-size: 80px 80px;
+  width: 80px;
 }
 
 .icon-cash-dollar {
@@ -448,7 +630,27 @@ body {
 }
 
 .svg .icon-cash-dollar {
-  background-image: url('../icons/icon-cash-collar.svg');
+  background-image: url('../icons/icon-cash-dollar.svg');
+  background-size: 80px 80px;
+  width: 80px;
+}
+
+.icon-delivery {
+  background-image: url('../icons/icon-truck.png');
+}
+
+.svg .icon-delivery {
+  background-image: url('../icons/icon-truck.svg');
+  background-size: 80px 80px;
+  width: 80px;
+}
+
+.icon-tags {
+  background-image: url('../icons/icon-tags.png');
+}
+
+.svg .icon-tags {
+  background-image: url('../icons/icon-tags.svg');
   background-size: 80px 80px;
   width: 80px;
 }
@@ -459,7 +661,17 @@ body {
 
 .svg .icon-picture {
   background-image: url('../icons/icon-picture.svg');
-  background-size: 70px 70px;
-  width: 70px;
-  height: 70px;
+  background-size: 80px 80px;
+  width: 80px;
+  height: 80px;
+}
+
+.icon-receipt {
+  background-image: url('../icons/icon-receipt.png');
+}
+
+.svg .icon-receipt {
+  background-image: url('../icons/icon-receipt.svg');
+  background-size: 80px 80px;
+  width: 80px;
 }

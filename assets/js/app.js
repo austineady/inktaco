@@ -4,16 +4,27 @@ $(document).ready(function() {
   $('#js-product-carousel').slick({
   arrows: false,
   centerMode: true,
-  centerPadding: '150px',
-  slidesToShow: 1,
+  centerPadding: '50px',
+  slidesToShow: 3,
+  initialSlide: 2,
   slidesToScroll: 3,
   responsive: [
     {
-      breakpoint: 800,
+      breakpoint: 950,
       settings: {
         arrows: false,
         centerMode: true,
-        centerPadding: '100px',
+        centerPadding: '200px',
+        slidesToShow: 1,
+        slidesToScroll: 3,
+      }
+    },
+    {
+      breakpoint: 750,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '150px',
         slidesToShow: 1,
         slidesToScroll: 3,
       }
@@ -26,6 +37,9 @@ $(document).ready(function() {
         centerPadding: '80px',
         slidesToShow: 1,
         slidesToScroll: 3,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        cssEase: 'ease-out'
       }
     },
     {
@@ -34,14 +48,12 @@ $(document).ready(function() {
         arrows: false,
         centerMode: true,
         centerPadding: '50px',
-        slidesToShow: 1,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        cssEase: 'ease-out'
+        slidesToShow: 1
       }
     }
   ]
 });
+if($('.js-logo-bar').width() < 950) {
 $('.js-logo-bar').slick({
   arrows: false,
   slidesToShow: 5,
@@ -50,20 +62,34 @@ $('.js-logo-bar').slick({
   variableHeight: true,
   responsive: [
     {
-      breakpoint: 500,
+      breakpoint: 950,
       settings: {
         arrows: false,
         centerMode: true,
         centerPadding: '40px',
+        initialSlide: 2,
         slidesToShow: 1,
         slidesToScroll: 3,
         autoplay: true,
         autoplaySpeed: 1000,
         cssEase: 'ease-out'
       }
+    },
+    {
+      breakpoint: 500,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        initialSlide: 2,
+        slidesToShow: 1,
+        slidesToScroll: 3,
+        cssEase: 'ease-out'
+      }
     }
   ]
 });
+}
 
 (function startTextRotation() {
   var $textHook = $(".js-text-hook");
@@ -74,5 +100,19 @@ $('.js-logo-bar').slick({
     showCursor: false
   });
 })()
+
+$('.js-modal-toggle').on('click', function(e) {
+  $('.modal').addClass('is-active');
+  $('body').addClass('modal-active');
+})
+
+$('.modal').on('click', function(e) {
+  $(this).removeClass('is-active');
+  $('body').removeClass('modal-active');
+})
+
+$('.modal__content').on('click', function(e) {
+  e.stopPropagation();
+})
 
 })
