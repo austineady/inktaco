@@ -2,41 +2,56 @@ $(document).foundation()
 
 $(document).ready(function() {
   $('#js-product-carousel').slick({
-  arrows: false,
+  arrows: true,
   centerMode: true,
-  centerPadding: '50px',
-  slidesToShow: 3,
+  centerPadding: '350px',
+  slidesToShow: 1,
   initialSlide: 2,
-  slidesToScroll: 3,
   responsive: [
     {
-      breakpoint: 950,
+      breakpoint: 1200,
       settings: {
-        arrows: false,
-        centerMode: true,
-        centerPadding: '200px',
-        slidesToShow: 1,
-        slidesToScroll: 3,
+        centerPadding: '300px'
       }
     },
     {
-      breakpoint: 750,
+      breakpoint: 1100,
       settings: {
-        arrows: false,
-        centerMode: true,
-        centerPadding: '150px',
-        slidesToShow: 1,
-        slidesToScroll: 3,
+        centerPadding: '250px'
       }
     },
     {
-      breakpoint: 600,
+      breakpoint: 980,
+      settings: {
+        centerPadding: '200px'
+      }
+    },
+    {
+      breakpoint: 900,
+      settings: {
+        centerPadding: '150px'
+      }
+    },
+    {
+      breakpoint: 770,
+      settings: {
+        centerPadding: '100px'
+      }
+    },
+    {
+      breakpoint: 650,
+      settings: {
+        centerPadding: '80px'
+      }
+    },
+    {
+      breakpoint: 615,
       settings: {
         arrows: false,
-        centerMode: true,
+        centerMode: false,
         centerPadding: '80px',
         slidesToShow: 1,
-        slidesToScroll: 3,
+        slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,
         cssEase: 'ease-out'
@@ -94,7 +109,7 @@ $('.js-logo-bar').slick({
 (function startTextRotation() {
   var $textHook = $(".js-text-hook");
   $textHook.typed({
-    strings: ["t-shirts", "jackets", "hoodies"],
+    strings: ["t-shirts", "sweatshirts", "zip ups", "tank tops", "long sleeves", "v-necks", "hoodies", "polos", "apparel"],
     typeSpeed: 100,
     loop: true,
     showCursor: false
