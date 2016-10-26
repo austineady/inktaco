@@ -3,12 +3,17 @@
 
 // Global Variables
 // ----------------------------------
-$white:                       #ffffff;
-$black:                       #000000;
-$primary-color:               #5f7bff;
-$secondary-color:             #464646;
-$grey:                        #6a6a6a;
-$roboto:                      'Roboto', sans-serif;
+$white:                             #ffffff;
+$black:                             #000000;
+$primary-color:                     #5f7bff;
+$secondary-color:                   #464646;
+$grey:                              #6a6a6a;
+$roboto:                            'Roboto', sans-serif;
+
+$container-width:                   1200px;
+
+$hero-background-main:              '../images/bg-man-with-grey-hoodie.jpg';
+$hero-background-secondary:         '../images/bg-woman-with-grey-hoodie.jpg';
 
 // Helpers
 // NOTE: Should override styles
@@ -56,11 +61,6 @@ body {
   height: 100%;
   overflow-x: hidden;
   width: 100%;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, .6), rgba(255, 255, 255, .8)), url('../images/bg-triangle-backdrop.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  background-color: $white;
 }
 
 // Establish font family
@@ -68,13 +68,23 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+// Establish Background
+body {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, .6), rgba(255, 255, 255, .8)), url('../images/bg-triangle-backdrop.jpg');
+  background-color: $white;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+// Set no-scroll while modal active
 body.modal-active {
   overflow-y: hidden;
 }
 
 .container {
-  max-width: 1200px;
   margin: 0 auto;
+  max-width: $container-width;
 }
 
 .bg-slice-backdrop {
@@ -82,11 +92,9 @@ body.modal-active {
   background-image: url('../images/bg-slice-backdrop.jpg');
   background-position: top center;
   background-repeat: no-repeat;
-  background-size: 100% 50%;
-  padding: 90px 0 30px;
+  background-size: 100% 70%;
 
   @media screen and (min-width: 1200px) {
-    background-size: 100% 70%;
     padding-top: 30px;
   }
 }
@@ -109,23 +117,35 @@ body.modal-active {
 }
 
 .hero {
-  height: 540px;
   box-shadow: 0 90px 80px -60px rgba(0, 0, 0, .7);
   clear: both;
-  width: 100%;
+  height: 540px;
   position: relative;
+  width: 100%;
 
   @media screen and (min-width: 500px) {
     height: 660px;
   }
 
+  &:before {
+    @include radial-gradient(circle at 50% 0, rgba(0, 0, 0, .4), rgba(0, 0, 0, .8));
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+  }
+
   &__background {
     background-position: top center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 110% 110%;
     float: left;
-    width: 50%;
     height: 100%;
+    width: 50%;
 
     @media screen and (max-width: 800px) {
       width: 100%;
@@ -133,11 +153,11 @@ body.modal-active {
   }
 
   &__background--main {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url('../images/bg-man-with-grey-hoodie.jpg');
+    background-image: url($hero-background-main);
   }
 
   &__background--secondary {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url('../images/bg-woman-with-grey-hoodie.jpg');
+    background-image: url($hero-background-secondary);
 
     @media screen and (max-width: 800px) {
       display: none;
@@ -165,11 +185,13 @@ body.modal-active {
 
   &__text {
     color: $white;
+    font-family: $roboto;
+    font-weight: 400;
     float: left;
     font-size: 60px;
+    line-height: 1.3;
     margin-bottom: 25px;
     text-align: center;
-    line-height: 1.3;
 
     @media screen and (min-width: 500px) {
       margin-bottom: 50px;
@@ -177,21 +199,24 @@ body.modal-active {
   }
 
   &__changing-text {
-    letter-spacing: 1.8px;
     display: inline-block;
+    letter-spacing: 1.6px;
     width: 370px;
   }
 
   &__email-input {
-    width: 275px;
-    float: left;
+    border-radius: 8px;
+    color: $grey;
+    display: inline-block;
     font-size: 15px;
     height: 45px;
-    padding: 15px 20px;
-    border-radius: 4px;
-    color: $grey;
-    outline: none;
     margin-right: 20px;
+    outline: none;
+    padding: 15px 20px;
+    position: relative;
+    top: -5px;
+    text-align: center;
+    width: 275px;
 
     @media screen and (max-width: 560px) {
       display: block;
@@ -203,7 +228,7 @@ body.modal-active {
   &__quote-button {
     color: $primary-color;
     cursor: pointer;
-    float: left;
+    display: inline-block;
     margin-left: 10px;
     background-color: $white;
     padding: 16px 30px;
@@ -323,7 +348,7 @@ body.modal-active {
   padding-top: 25px;
 
   @media screen and (min-width: 500px) {
-    padding-top: 90px;
+    padding-top: 70px;
   }
 
   .small-12 {
@@ -390,13 +415,14 @@ body.modal-active {
 }
 
 .product {
+  position: relative;
   outline: none;
   width: 640px;
 
   &__description {
     background-color: rgba(255, 255, 255, 1);
     box-shadow: none;
-    bottom: 130px;
+    bottom: 120px;
     color: $primary-color;
     height: 316px;
     left: -10px;
@@ -418,7 +444,7 @@ body.modal-active {
     }
 
     @media screen and (min-width: 700px) {
-      bottom: 100px;
+      bottom: 120px;
     }
   }
 
@@ -437,6 +463,36 @@ body.modal-active {
     text-decoration: underline;
     margin-top: 30px;
   }
+}
+
+.icon-arrow-prev {
+  opacity: 0;
+  background-image: url('../icons/icon-chevron-left.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  height: 40px;
+  left: 0;
+  position: absolute;
+  top: 450px;
+  width: 40px;
+  z-index: 300;
+}
+
+.icon-arrow-next {
+  background-image: url('../icons/icon-chevron-right.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  height: 40px;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 450px;
+  width: 40px;
+  z-index: 300;
 }
 
 .product.slick-active {
@@ -465,6 +521,11 @@ body.modal-active {
     opacity: 1;
     top: 0;
   }
+  .icon-arrow-prev,
+  .icon-arrow-next {
+    @include transition(opacity .5s);
+    opacity: 1;
+  }
 }
 
 /* .typed-cursor{
@@ -491,10 +552,11 @@ body.modal-active {
 
 .footer {
   background-color: $white;
-  padding-top: 50px;
+  margin-top: 50px;
+  padding-bottom: 70px;
 
   @media screen and (min-width: 500px) {
-    padding-top: 150px;
+    margin-top: 150px;
   }
 
   &__text {
@@ -523,8 +585,10 @@ body.modal-active {
     background-color: $primary-color;
     color: $white;
     cursor: pointer;
+    display: block;
     font-size: 15px;
-    margin-top: 15px;
+    margin: 0 auto;
+    width: 250px;
     padding: 15px 70px;
     text-align: center;
 
@@ -536,10 +600,6 @@ body.modal-active {
     color: $primary-color;
     font-size: 18px;
     margin-top: 100px;
-
-    @media screen and (min-width: 800px) {
-      margin-top: 50px;
-    }
   }
 }
 
@@ -630,7 +690,7 @@ body.modal-active {
   @include transition(opacity .6s);
   opacity: 1;
   visibility: visible;
-  z-index: 100;
+  z-index: 900;
 }
 
 .icon {
@@ -703,36 +763,6 @@ body.modal-active {
 .svg .icon-receipt {
   background-image: url('../icons/icon-receipt.svg');
   background-size: 70px 70px;
-  width: 70px;
   height: 70px;
-}
-
-.slick-prev:before,
-.slick-next:before {
-  color: $primary-color;
-  font-size: 40px;
-}
-
-.slick-prev {
-  left: 60px;
-
-  @media screen and (min-width: 900px) {
-    left: 20%;
-  }
-
-  @media screen and (min-width: 1200px) {
-    left: 30%;
-  }
-}
-
-.slick-next {
-  right: 70px;
-
-  @media screen and (min-width: 900px) {
-    right: 20%;
-  }
-
-  @media screen and (min-width: 1200px) {
-    right: 30%;
-  }
+  width: 70px;
 }

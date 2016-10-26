@@ -2,7 +2,7 @@ $(document).foundation()
 
 $(document).ready(function() {
   $('#js-product-carousel').slick({
-  arrows: true,
+  arrows: false,
   centerMode: true,
   centerPadding: '350px',
   slidesToShow: 1,
@@ -68,6 +68,12 @@ $(document).ready(function() {
     }
   ]
 });
+$('.js-prev-product').on('click', function() {
+  $('#js-product-carousel').slick('slickPrev');
+});
+$('.js-next-product').on('click', function() {
+  $('#js-product-carousel').slick('slickNext');
+});
 if($('.js-logo-bar').width() < 950) {
 $('.js-logo-bar').slick({
   arrows: false,
@@ -128,6 +134,35 @@ $('.modal').on('click', function(e) {
 
 $('.modal__content').on('click', function(e) {
   e.stopPropagation();
+})
+
+
+var scrollMem = 0;
+var backgroundY = 0;
+
+$(window).on('scroll', function() {
+  var scrollTop = $(window).scrollTop();
+  if(scrollTop == 0) {
+    backgroundY = 0;
+  }
+  if(scrollMem == 0) {
+    scrollMem = scrollTop;
+  } else {
+    if(scrollTop > scrollMem && scrollTop < 100) {
+      // scrolling down
+      backgroundY >= -30 ? backgroundY -= 1 : backgroundY = -30;
+      scrollMem = scrollTop;
+    }
+    if(scrollTop < scrollMem && scrollTop > 0) {
+      // scrolling up
+      backgroundY <= 0 ? backgroundY += 1 : backgroundY = 0;
+      scrollMem = scrollTop;
+    }
+  }
+
+  $('.js-hero-background').animate({
+    'background-position-y': backgroundY
+  }, 10);
 })
 
 })

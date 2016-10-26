@@ -28,33 +28,33 @@
 body {
   height: 100%;
   overflow-x: hidden;
-  width: 100%;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.8)), url("../images/bg-triangle-backdrop.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  background-color: #ffffff; }
+  width: 100%; }
 
 body {
   font-family: 'Roboto', sans-serif; }
+
+body {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.8)), url("../images/bg-triangle-backdrop.jpg");
+  background-color: #ffffff;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover; }
 
 body.modal-active {
   overflow-y: hidden; }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  max-width: 1200px; }
 
 .bg-slice-backdrop {
   background-color: #ffffff;
   background-image: url("../images/bg-slice-backdrop.jpg");
   background-position: top center;
   background-repeat: no-repeat;
-  background-size: 100% 50%;
-  padding: 90px 0 30px; }
+  background-size: 100% 70%; }
   @media screen and (min-width: 1200px) {
     .bg-slice-backdrop {
-      background-size: 100% 70%;
       padding-top: 30px; } }
 
 .bg-slice-backdrop--reverse {
@@ -72,28 +72,39 @@ body.modal-active {
   z-index: 10; }
 
 .hero {
-  height: 540px;
   box-shadow: 0 90px 80px -60px rgba(0, 0, 0, 0.7);
   clear: both;
-  width: 100%;
-  position: relative; }
+  height: 540px;
+  position: relative;
+  width: 100%; }
   @media screen and (min-width: 500px) {
     .hero {
       height: 660px; } }
+  .hero:before {
+    background-image: -webkit-radial-gradient(50% 0, circle, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
+    background-image: radial-gradient(  circle at 50% 0, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 100%; }
   .hero__background {
     background-position: top center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 110% 110%;
     float: left;
-    width: 50%;
-    height: 100%; }
+    height: 100%;
+    width: 50%; }
     @media screen and (max-width: 800px) {
       .hero__background {
         width: 100%; } }
   .hero__background--main {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../images/bg-man-with-grey-hoodie.jpg"); }
+    background-image: url("../images/bg-man-with-grey-hoodie.jpg"); }
   .hero__background--secondary {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../images/bg-woman-with-grey-hoodie.jpg"); }
+    background-image: url("../images/bg-woman-with-grey-hoodie.jpg"); }
     @media screen and (max-width: 800px) {
       .hero__background--secondary {
         display: none; } }
@@ -113,28 +124,33 @@ body.modal-active {
     text-align: center; }
   .hero__text {
     color: #ffffff;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
     float: left;
     font-size: 60px;
+    line-height: 1.3;
     margin-bottom: 25px;
-    text-align: center;
-    line-height: 1.3; }
+    text-align: center; }
     @media screen and (min-width: 500px) {
       .hero__text {
         margin-bottom: 50px; } }
   .hero__changing-text {
-    letter-spacing: 1.8px;
     display: inline-block;
+    letter-spacing: 1.6px;
     width: 370px; }
   .hero__email-input {
-    width: 275px;
-    float: left;
+    border-radius: 8px;
+    color: #6a6a6a;
+    display: inline-block;
     font-size: 15px;
     height: 45px;
-    padding: 15px 20px;
-    border-radius: 4px;
-    color: #6a6a6a;
+    margin-right: 20px;
     outline: none;
-    margin-right: 20px; }
+    padding: 15px 20px;
+    position: relative;
+    top: -5px;
+    text-align: center;
+    width: 275px; }
     @media screen and (max-width: 560px) {
       .hero__email-input {
         display: block;
@@ -143,7 +159,7 @@ body.modal-active {
   .hero__quote-button {
     color: #5f7bff;
     cursor: pointer;
-    float: left;
+    display: inline-block;
     margin-left: 10px;
     background-color: #ffffff;
     padding: 16px 30px;
@@ -232,7 +248,7 @@ body.modal-active {
   padding-top: 25px; }
   @media screen and (min-width: 500px) {
     .feature-deck {
-      padding-top: 90px; } }
+      padding-top: 70px; } }
   .feature-deck .small-12 {
     margin-top: 30px; }
     @media screen and (min-width: 690px) {
@@ -279,12 +295,13 @@ body.modal-active {
       padding-top: 50px; } }
 
 .product {
+  position: relative;
   outline: none;
   width: 640px; }
   .product__description {
     background-color: white;
     box-shadow: none;
-    bottom: 130px;
+    bottom: 120px;
     color: #5f7bff;
     height: 316px;
     left: -10px;
@@ -304,7 +321,7 @@ body.modal-active {
         bottom: 110px; } }
     @media screen and (min-width: 700px) {
       .product__description {
-        bottom: 100px; } }
+        bottom: 120px; } }
   .product__image {
     -webkit-transition: top 0.3s linear;
     -moz-transition: top 0.3s linear;
@@ -319,6 +336,34 @@ body.modal-active {
   .product__contact {
     text-decoration: underline;
     margin-top: 30px; }
+
+.icon-arrow-prev {
+  opacity: 0;
+  background-image: url("../icons/icon-chevron-left.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  height: 40px;
+  left: 0;
+  position: absolute;
+  top: 450px;
+  width: 40px;
+  z-index: 300; }
+
+.icon-arrow-next {
+  background-image: url("../icons/icon-chevron-right.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  height: 40px;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 450px;
+  width: 40px;
+  z-index: 300; }
 
 .product.slick-active .product__image {
   opacity: .6; }
@@ -340,6 +385,12 @@ body.modal-active {
 .product.slick-current .product__image {
   opacity: 1;
   top: 0; }
+.product.slick-current .icon-arrow-prev,
+.product.slick-current .icon-arrow-next {
+  -webkit-transition: opacity 0.5s;
+  -moz-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  opacity: 1; }
 
 /* .typed-cursor{
     opacity: 1;
@@ -364,10 +415,11 @@ body.modal-active {
 } */
 .footer {
   background-color: #ffffff;
-  padding-top: 50px; }
+  margin-top: 50px;
+  padding-bottom: 70px; }
   @media screen and (min-width: 500px) {
     .footer {
-      padding-top: 150px; } }
+      margin-top: 150px; } }
   .footer__text {
     color: #6a6a6a;
     font-weight: 400;
@@ -388,8 +440,10 @@ body.modal-active {
     background-color: #5f7bff;
     color: #ffffff;
     cursor: pointer;
+    display: block;
     font-size: 15px;
-    margin-top: 15px;
+    margin: 0 auto;
+    width: 250px;
     padding: 15px 70px;
     text-align: center; }
     .footer__contact-button:hover {
@@ -398,9 +452,6 @@ body.modal-active {
     color: #5f7bff;
     font-size: 18px;
     margin-top: 100px; }
-    @media screen and (min-width: 800px) {
-      .footer__legal {
-        margin-top: 50px; } }
 
 .modal {
   -webkit-transition: opacity 0.4s;
@@ -473,7 +524,7 @@ body.modal-active {
   transition: opacity 0.6s;
   opacity: 1;
   visibility: visible;
-  z-index: 100; }
+  z-index: 900; }
 
 .icon {
   background-repeat: no-repeat;
@@ -533,30 +584,7 @@ body.modal-active {
 .svg .icon-receipt {
   background-image: url("../icons/icon-receipt.svg");
   background-size: 70px 70px;
-  width: 70px;
-  height: 70px; }
-
-.slick-prev:before,
-.slick-next:before {
-  color: #5f7bff;
-  font-size: 40px; }
-
-.slick-prev {
-  left: 60px; }
-  @media screen and (min-width: 900px) {
-    .slick-prev {
-      left: 20%; } }
-  @media screen and (min-width: 1200px) {
-    .slick-prev {
-      left: 30%; } }
-
-.slick-next {
-  right: 70px; }
-  @media screen and (min-width: 900px) {
-    .slick-next {
-      right: 20%; } }
-  @media screen and (min-width: 1200px) {
-    .slick-next {
-      right: 30%; } }
+  height: 70px;
+  width: 70px; }
 
 /*# sourceMappingURL=app.css.map */
