@@ -44,8 +44,11 @@ body.modal-active {
   overflow-y: hidden; }
 
 .container {
+  background-color: #ffffff;
+  box-shadow: 0 45px 45px 0 rgba(0, 0, 0, 0.1);
   margin: 0 auto;
-  max-width: 1200px; }
+  max-width: 1240px;
+  height: 100%; }
 
 .bg-slice-backdrop {
   background-color: #ffffff;
@@ -74,9 +77,10 @@ body.modal-active {
 .hero {
   box-shadow: 0 90px 80px -60px rgba(0, 0, 0, 0.7);
   clear: both;
-  height: 540px;
+  height: 600px;
   position: relative;
-  width: 100%; }
+  margin: 0 auto;
+  max-width: 1190px; }
   @media screen and (min-width: 500px) {
     .hero {
       height: 660px; } }
@@ -101,6 +105,9 @@ body.modal-active {
     @media screen and (max-width: 800px) {
       .hero__background {
         width: 100%; } }
+    @media screen and (max-width: 1100px) {
+      .hero__background {
+        background-size: cover; } }
   .hero__background--main {
     background-image: url("../images/bg-man-with-grey-hoodie.jpg"); }
   .hero__background--secondary {
@@ -111,33 +118,36 @@ body.modal-active {
   .hero__text-box {
     width: 100%;
     text-align: center;
-    margin: 0 auto;
     position: absolute;
     top: 50px; }
     @media screen and (min-width: 500px) {
       .hero__text-box {
         top: 150px; } }
   .hero__content {
-    max-width: 650px;
-    padding: 0 15px;
-    margin: 0 auto;
-    text-align: center; }
+    max-width: 560px;
+    margin: 0 auto; }
+  .hero__changing-text {
+    font-weight: 600;
+    display: block;
+    margin: 20px auto;
+    height: 60px; }
+    @media screen and (min-width: 500px) {
+      .hero__changing-text {
+        display: inline;
+        height: auto; } }
   .hero__text {
     color: #ffffff;
     font-family: "Roboto", sans-serif;
     font-weight: 400;
-    float: left;
     font-size: 60px;
-    line-height: 1.3;
-    margin-bottom: 25px;
-    text-align: center; }
+    line-height: 1;
+    margin-top: 20px;
+    margin-bottom: 25px; }
     @media screen and (min-width: 500px) {
       .hero__text {
-        margin-bottom: 50px; } }
-  .hero__changing-text {
-    display: inline-block;
-    letter-spacing: 1.6px;
-    width: 370px; }
+        margin-top: 0;
+        margin-bottom: 50px;
+        line-height: 1.3; } }
   .hero__email-input {
     border-radius: 8px;
     color: #6a6a6a;
@@ -173,12 +183,12 @@ body.modal-active {
       .hero__quote-button {
         float: none;
         margin: 10px auto;
-        top: 40px; } }
+        top: 20px; } }
 
 .logo-bar {
   height: 90px;
   line-height: 90px;
-  margin: 0 auto;
+  margin: 30px auto;
   max-width: 1200px;
   text-align: center; }
   @media screen and (min-width: 500px) {
@@ -303,11 +313,10 @@ body.modal-active {
     box-shadow: none;
     bottom: 120px;
     color: #5f7bff;
-    height: 316px;
+    height: 250px;
     left: -10px;
     margin: 0 auto;
-    max-width: 375px;
-    min-width: 250px;
+    width: 312px;
     opacity: 0;
     position: relative;
     text-align: center;
@@ -315,27 +324,35 @@ body.modal-active {
     @media screen and (min-width: 350px) {
       .product__description {
         left: 0; } }
-    @media screen and (min-width: 500px) {
+    @media screen and (min-width: 450px) {
       .product__description {
         width: 400px;
-        bottom: 110px; } }
+        bottom: 110px;
+        height: 316px; } }
     @media screen and (min-width: 700px) {
       .product__description {
         bottom: 120px; } }
+  .product__title, .product__type, .product__details {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1; }
   .product__image {
     -webkit-transition: top 0.3s linear;
     -moz-transition: top 0.3s linear;
     transition: top 0.3s linear;
     position: relative;
     top: 100px;
-    width: 472px;
-    height: 465px;
+    max-width: 472px;
+    width: 90%;
+    min-width: 310px;
     margin: 0 auto;
     opacity: .3;
     z-index: 3; }
   .product__contact {
     text-decoration: underline;
-    margin-top: 30px; }
+    margin-top: 30px;
+    font-size: 15px; }
 
 .icon-arrow-prev {
   opacity: 0;
@@ -350,6 +367,9 @@ body.modal-active {
   top: 450px;
   width: 40px;
   z-index: 300; }
+  @media screen and (max-width: 800px) {
+    .icon-arrow-prev {
+      display: none; } }
 
 .icon-arrow-next {
   background-image: url("../icons/icon-chevron-right.png");
@@ -364,6 +384,9 @@ body.modal-active {
   top: 450px;
   width: 40px;
   z-index: 300; }
+  @media screen and (max-width: 800px) {
+    .icon-arrow-next {
+      display: none; } }
 
 .product.slick-active .product__image {
   opacity: .6; }
@@ -376,9 +399,6 @@ body.modal-active {
   border: 5px solid #5f7bff;
   padding: 100px 25px 70px;
   opacity: 1; }
-  @media screen and (min-width: 500px) {
-    .product.slick-current .product__description {
-      padding: 70px 15px; } }
   @media screen and (min-width: 700px) {
     .product.slick-current .product__description {
       padding: 100px 15px; } }
@@ -433,9 +453,7 @@ body.modal-active {
       display: none; } }
   .footer__changing-text {
     color: #5f7bff;
-    font-weight: 500;
-    display: inline-block;
-    width: 185px; }
+    font-weight: 700; }
   .footer__contact-button {
     background-color: #5f7bff;
     color: #ffffff;
@@ -454,9 +472,9 @@ body.modal-active {
     margin-top: 100px; }
 
 .modal {
-  -webkit-transition: opacity 0.4s;
-  -moz-transition: opacity 0.4s;
-  transition: opacity 0.4s;
+  -webkit-transition: opacity 0.3s, z-index 1s;
+  -moz-transition: opacity 0.3s, z-index 1s;
+  transition: opacity 0.3s, z-index 1s;
   background-color: rgba(0, 0, 0, 0.8);
   bottom: 0;
   left: 0;
@@ -464,11 +482,13 @@ body.modal-active {
   position: fixed;
   right: 0;
   top: 0;
-  visibility: hidden;
   z-index: -100; }
   .modal .h-underline {
     color: #5f7bff; }
   .modal__content {
+    -webkit-transition: opacity 0.3s;
+    -moz-transition: opacity 0.3s;
+    transition: opacity 0.3s;
     background-color: #ffffff;
     border-radius: 30px;
     bottom: 0;
@@ -479,6 +499,7 @@ body.modal-active {
     left: 0;
     margin: auto;
     min-width: 300px;
+    opacity: 0;
     overflow: hidden;
     padding: 50px 90px;
     position: absolute;
@@ -519,12 +540,16 @@ body.modal-active {
     text-align: center; }
 
 .modal.is-active {
-  -webkit-transition: opacity 0.6s;
-  -moz-transition: opacity 0.6s;
-  transition: opacity 0.6s;
+  -webkit-transition: opacity 0.3s;
+  -moz-transition: opacity 0.3s;
+  transition: opacity 0.3s;
   opacity: 1;
-  visibility: visible;
   z-index: 900; }
+  .modal.is-active .modal__content {
+    -webkit-transition: opacity 0.6s;
+    -moz-transition: opacity 0.6s;
+    transition: opacity 0.6s;
+    opacity: 1; }
 
 .icon {
   background-repeat: no-repeat;

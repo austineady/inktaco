@@ -33,19 +33,7 @@ $(document).ready(function() {
       }
     },
     {
-      breakpoint: 770,
-      settings: {
-        centerPadding: '100px'
-      }
-    },
-    {
-      breakpoint: 650,
-      settings: {
-        centerPadding: '80px'
-      }
-    },
-    {
-      breakpoint: 615,
+      breakpoint: 800,
       settings: {
         arrows: false,
         centerMode: false,
@@ -92,7 +80,7 @@ $('.js-logo-bar').slick({
         slidesToShow: 1,
         slidesToScroll: 3,
         autoplay: true,
-        autoplaySpeed: 1000,
+        autoplaySpeed: 1500,
         cssEase: 'ease-out'
       }
     },
@@ -116,8 +104,12 @@ $('.js-logo-bar').slick({
   var $textHook = $(".js-text-hook");
   $textHook.typed({
     strings: ["t-shirts", "sweatshirts", "zip ups", "tank tops", "long sleeves", "v-necks", "hoodies", "polos", "apparel"],
-    typeSpeed: 100,
+    typeSpeed: 75,
+    backSpeed: 60,
+    startDelay: 200,
+    backDelay: 300,
     loop: true,
+    shuffle: true,
     showCursor: false
   });
 })()
@@ -159,10 +151,11 @@ $(window).on('scroll', function() {
       scrollMem = scrollTop;
     }
   }
-
-  $('.js-hero-background').animate({
-    'background-position-y': backgroundY
-  }, 10);
+  if(window.innerWidth >= 1100) {
+    $('.js-hero-background').animate({
+      'background-position-y': backgroundY
+    }, 10);
+  }
 })
 
 })
