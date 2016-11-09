@@ -46,9 +46,10 @@ body.modal-active {
 .container {
   background-color: #ffffff;
   box-shadow: 0 45px 45px 0 rgba(0, 0, 0, 0.1);
+  height: 100%;
   margin: 0 auto;
   max-width: 1240px;
-  height: 100%; }
+  min-width: 320px; }
 
 .bg-slice-backdrop {
   background-color: #ffffff;
@@ -56,17 +57,10 @@ body.modal-active {
   background-position: top center;
   background-repeat: no-repeat;
   background-size: 100% 70%; }
-  @media screen and (min-width: 1200px) {
-    .bg-slice-backdrop {
-      padding-top: 30px; } }
 
 .bg-slice-backdrop--reverse {
   background-image: url("../images/bg-slice-backdrop-reverse.png");
-  background-size: 100% 50%;
-  padding: 50px 0 0; }
-  @media screen and (min-width: 1200px) {
-    .bg-slice-backdrop--reverse {
-      padding-top: 30px; } }
+  background-size: 100% 50%; }
 
 .brand-logo {
   position: relative;
@@ -188,15 +182,12 @@ body.modal-active {
 .logo-bar {
   height: 90px;
   line-height: 90px;
-  margin: 30px auto;
+  margin: 50px auto 0;
   max-width: 1200px;
   text-align: center; }
-  @media screen and (min-width: 500px) {
-    .logo-bar {
-      margin: 50px auto; } }
   @media screen and (min-width: 980px) {
     .logo-bar {
-      margin: 90px auto 115px; } }
+      margin: 90px auto 0; } }
   .logo-bar__image {
     -webkit-transition: opacity 0.5s linear;
     -moz-transition: opacity 0.5s linear;
@@ -255,10 +246,10 @@ body.modal-active {
 
 .feature-deck {
   color: #6a6a6a;
-  padding-top: 25px; }
+  padding-top: 70px; }
   @media screen and (min-width: 500px) {
     .feature-deck {
-      padding-top: 70px; } }
+      padding-top: 115px; } }
   .feature-deck .small-12 {
     margin-top: 30px; }
     @media screen and (min-width: 690px) {
@@ -285,77 +276,107 @@ body.modal-active {
   background-color: #ffffff; }
 
 .feature-deck--secondary {
-  padding-top: 150px; }
+  padding-top: 120px; }
   @media screen and (min-width: 500px) {
     .feature-deck--secondary {
-      padding-top: 90px; } }
+      padding-top: 150px; } }
 
 .product-carousel {
   background-color: #ffffff;
   height: 550px;
-  padding-top: 50px;
+  opacity: 0;
+  padding-top: 110px;
   max-height: 850px;
   position: relative; }
   @media screen and (min-width: 500px) {
     .product-carousel {
-      padding-top: 100px;
+      padding-top: 190px;
       height: 760px; } }
-  @media screen and (min-width: 800px) {
-    .product-carousel {
-      padding-top: 50px; } }
+  .product-carousel.is-active {
+    -webkit-transition: opacity 2s;
+    -moz-transition: opacity 2s;
+    transition: opacity 2s;
+    opacity: 1; }
 
 .product {
   position: relative;
   outline: none;
-  width: 640px; }
+  width: 320px;
+  min-height: 640px; }
+  @media screen and (min-width: 400px) {
+    .product {
+      width: 380px; } }
+  @media screen and (min-width: 500px) {
+    .product {
+      width: 450px; } }
+  @media screen and (min-width: 700px) {
+    .product {
+      width: 500px; } }
+  @media screen and (min-width: 850px) {
+    .product {
+      width: 550px; } }
+  @media screen and (min-width: 1000px) {
+    .product {
+      width: 600px; } }
+  @media screen and (min-width: 1200px) {
+    .product {
+      width: 637px; } }
   .product__description {
     background-color: white;
-    box-shadow: none;
     bottom: 120px;
+    box-shadow: none;
     color: #5f7bff;
     height: 250px;
-    left: -10px;
     margin: 0 auto;
-    width: 312px;
+    left: -5px;
     opacity: 0;
     position: relative;
     text-align: center;
-    width: 100%; }
-    @media screen and (min-width: 350px) {
+    width: 90%; }
+    @media screen and (min-width: 400px) {
       .product__description {
-        left: 0; } }
-    @media screen and (min-width: 450px) {
-      .product__description {
-        width: 400px;
-        bottom: 110px;
-        height: 316px; } }
+        left: 0;
+        width: 312px; } }
     @media screen and (min-width: 700px) {
       .product__description {
-        bottom: 120px; } }
+        bottom: 120px;
+        height: 316px;
+        width: 400px; } }
   .product__title, .product__type, .product__details {
     font-family: "Roboto", sans-serif;
-    font-weight: 400;
     font-size: 18px;
+    font-weight: 400;
     line-height: 1; }
   .product__image {
-    -webkit-transition: top 0.3s linear;
-    -moz-transition: top 0.3s linear;
-    transition: top 0.3s linear;
+    -webkit-transition: top 0.1s linear;
+    -moz-transition: top 0.1s linear;
+    transition: top 0.1s linear;
+    margin: 0 auto;
+    width: 100%;
+    opacity: .3;
     position: relative;
     top: 100px;
-    max-width: 472px;
-    width: 90%;
-    min-width: 310px;
-    margin: 0 auto;
-    opacity: .3;
     z-index: 3; }
+    @media screen and (min-width: 380px) {
+      .product__image {
+        width: 370px; } }
+    @media screen and (min-width: 700px) {
+      .product__image {
+        width: 472px; } }
   .product__contact {
-    text-decoration: underline;
+    color: #5f7bff;
+    cursor: pointer;
+    display: block;
+    font-size: 15px;
     margin-top: 30px;
-    font-size: 15px; }
+    text-decoration: underline; }
+    .product__contact:hover {
+      color: #4666ff; }
 
 .icon-arrow-prev {
-  opacity: 0;
+  -webkit-transition: opacity 0.1s;
+  -moz-transition: opacity 0.1s;
+  transition: opacity 0.1s;
   background-image: url("../icons/icon-chevron-left.png");
   background-position: center center;
   background-repeat: no-repeat;
@@ -363,15 +384,22 @@ body.modal-active {
   cursor: pointer;
   height: 40px;
   left: 0;
+  opacity: 0;
   position: absolute;
   top: 450px;
   width: 40px;
   z-index: 300; }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 700px) {
     .icon-arrow-prev {
-      display: none; } }
+      top: 175px; } }
+  @media screen and (max-width: 410px) {
+    .icon-arrow-prev {
+      top: 130px; } }
 
 .icon-arrow-next {
+  -webkit-transition: opacity 0.1s;
+  -moz-transition: opacity 0.1s;
+  transition: opacity 0.1s;
   background-image: url("../icons/icon-chevron-right.png");
   background-position: center center;
   background-repeat: no-repeat;
@@ -384,21 +412,41 @@ body.modal-active {
   top: 450px;
   width: 40px;
   z-index: 300; }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 700px) {
     .icon-arrow-next {
-      display: none; } }
+      top: 175px; } }
+  @media screen and (max-width: 400px) {
+    .icon-arrow-next {
+      top: 130px; } }
 
-.product.slick-active .product__image {
-  opacity: .6; }
+.icon-arrow-repeat {
+  -webkit-transition: opacity 0.1s;
+  -moz-transition: opacity 0.1s;
+  transition: opacity 0.1s;
+  background-image: none;
+  color: #5f7bff;
+  font-size: 35px;
+  cursor: pointer;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 450px;
+  z-index: 300; }
+  @media screen and (max-width: 700px) {
+    .icon-arrow-repeat {
+      top: 175px; } }
+  @media screen and (max-width: 400px) {
+    .icon-arrow-repeat {
+      top: 130px; } }
 
 .product.slick-current .product__description {
-  -webkit-transition: opacity 0.5s, box-shadow 0.9s;
-  -moz-transition: opacity 0.5s, box-shadow 0.9s;
-  transition: opacity 0.5s, box-shadow 0.9s;
-  box-shadow: 0 40px 50px -20px rgba(0, 0, 0, 0.3);
+  -webkit-transition: opacity 0.1s, box-shadow 0.5s;
+  -moz-transition: opacity 0.1s, box-shadow 0.5s;
+  transition: opacity 0.1s, box-shadow 0.5s;
   border: 5px solid #5f7bff;
-  padding: 100px 25px 70px;
-  opacity: 1; }
+  box-shadow: 0 40px 50px -20px rgba(0, 0, 0, 0.3);
+  opacity: 1;
+  padding: 100px 10px 10px; }
   @media screen and (min-width: 700px) {
     .product.slick-current .product__description {
       padding: 100px 15px; } }
@@ -406,10 +454,8 @@ body.modal-active {
   opacity: 1;
   top: 0; }
 .product.slick-current .icon-arrow-prev,
-.product.slick-current .icon-arrow-next {
-  -webkit-transition: opacity 0.5s;
-  -moz-transition: opacity 0.5s;
-  transition: opacity 0.5s;
+.product.slick-current .icon-arrow-next,
+.product.slick-current .icon-arrow-repeat {
   opacity: 1; }
 
 /* .typed-cursor{
@@ -435,15 +481,15 @@ body.modal-active {
 } */
 .footer {
   background-color: #ffffff;
-  margin-top: 50px;
-  padding-bottom: 70px; }
+  padding-bottom: 70px;
+  padding-top: 100px; }
   @media screen and (min-width: 500px) {
     .footer {
-      margin-top: 150px; } }
+      padding-top: 150px; } }
   .footer__text {
     color: #6a6a6a;
-    font-weight: 400;
     font-size: 30px;
+    font-weight: 400;
     padding: 0 30px; }
     @media screen and (min-width: 500px) {
       .footer__text {
