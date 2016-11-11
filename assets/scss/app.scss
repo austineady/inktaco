@@ -451,7 +451,7 @@ body.modal-active {
     bottom: 90px;
     box-shadow: none;
     color: $primary-color;
-    height: 220px;
+    height: 230px;
     left: -5px;
     margin: 0 auto;
     opacity: 0;
@@ -459,8 +459,8 @@ body.modal-active {
     text-align: center;
     width: 90%;
 
-    @media screen and (min-width: 400px) {
-      bottom: 120px;
+    @media screen and (min-width: 420px) {
+      bottom: 110px;
       height: 250px;
       left: 0;
       width: 312px;
@@ -542,7 +542,7 @@ body.modal-active {
     top: 130px;
   }
 
-  @media screen and (max-width: 410px) {
+  @media screen and (max-width: 400px) {
     top: 100px;
   }
 }

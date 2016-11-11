@@ -326,16 +326,16 @@ body.modal-active {
     bottom: 90px;
     box-shadow: none;
     color: #5f7bff;
-    height: 220px;
+    height: 230px;
     left: -5px;
     margin: 0 auto;
     opacity: 0;
     position: relative;
     text-align: center;
     width: 90%; }
-    @media screen and (min-width: 400px) {
+    @media screen and (min-width: 420px) {
       .product__description {
-        bottom: 120px;
+        bottom: 110px;
         height: 250px;
         left: 0;
         width: 312px; } }
@@ -401,7 +401,7 @@ body.modal-active {
   @media screen and (max-width: 600px) {
     .icon-arrow-prev {
       top: 130px; } }
-  @media screen and (max-width: 410px) {
+  @media screen and (max-width: 400px) {
     .icon-arrow-prev {
       top: 100px; } }
 
