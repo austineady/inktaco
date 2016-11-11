@@ -285,12 +285,12 @@ body.modal-active {
   background-color: #ffffff;
   height: 550px;
   opacity: 0;
-  padding-top: 110px;
+  padding: 55px 0;
   max-height: 850px;
   position: relative; }
   @media screen and (min-width: 500px) {
     .product-carousel {
-      padding-top: 190px;
+      padding: 95px 0;
       height: 760px; } }
   .product-carousel.is-active {
     -webkit-transition: opacity 2s;
@@ -323,18 +323,20 @@ body.modal-active {
       width: 637px; } }
   .product__description {
     background-color: white;
-    bottom: 120px;
+    bottom: 90px;
     box-shadow: none;
     color: #5f7bff;
-    height: 250px;
-    margin: 0 auto;
+    height: 220px;
     left: -5px;
+    margin: 0 auto;
     opacity: 0;
     position: relative;
     text-align: center;
     width: 90%; }
     @media screen and (min-width: 400px) {
       .product__description {
+        bottom: 120px;
+        height: 250px;
         left: 0;
         width: 312px; } }
     @media screen and (min-width: 700px) {
@@ -352,12 +354,15 @@ body.modal-active {
     -moz-transition: top 0.1s linear;
     transition: top 0.1s linear;
     margin: 0 auto;
-    width: 100%;
+    width: 80%;
     opacity: .3;
     position: relative;
     top: 100px;
     z-index: 3; }
-    @media screen and (min-width: 380px) {
+    @media screen and (min-width: 420px) {
+      .product__image {
+        width: 85%; } }
+    @media screen and (min-width: 500px) {
       .product__image {
         width: 370px; } }
     @media screen and (min-width: 700px) {
@@ -383,18 +388,22 @@ body.modal-active {
   background-size: contain;
   cursor: pointer;
   height: 40px;
-  left: 0;
+  left: -20px;
   opacity: 0;
   position: absolute;
-  top: 450px;
+  top: 300px;
   width: 40px;
-  z-index: 300; }
-  @media screen and (max-width: 700px) {
+  z-index: 0; }
+  @media screen and (max-width: 699px) {
     .icon-arrow-prev {
+      left: 0;
       top: 175px; } }
-  @media screen and (max-width: 410px) {
+  @media screen and (max-width: 600px) {
     .icon-arrow-prev {
       top: 130px; } }
+  @media screen and (max-width: 410px) {
+    .icon-arrow-prev {
+      top: 100px; } }
 
 .icon-arrow-next {
   -webkit-transition: opacity 0.1s;
@@ -408,16 +417,20 @@ body.modal-active {
   height: 40px;
   opacity: 0;
   position: absolute;
-  right: 0;
-  top: 450px;
+  right: -20px;
+  top: 300px;
   width: 40px;
-  z-index: 300; }
-  @media screen and (max-width: 700px) {
+  z-index: 0; }
+  @media screen and (max-width: 699px) {
     .icon-arrow-next {
-      top: 175px; } }
-  @media screen and (max-width: 400px) {
+      top: 175px;
+      right: 0; } }
+  @media screen and (max-width: 600px) {
     .icon-arrow-next {
       top: 130px; } }
+  @media screen and (max-width: 400px) {
+    .icon-arrow-next {
+      top: 100px; } }
 
 .icon-arrow-repeat {
   -webkit-transition: opacity 0.1s;
@@ -429,15 +442,19 @@ body.modal-active {
   cursor: pointer;
   opacity: 0;
   position: absolute;
-  right: 0;
-  top: 450px;
-  z-index: 300; }
-  @media screen and (max-width: 700px) {
+  right: -20px;
+  top: 300px;
+  z-index: 0; }
+  @media screen and (max-width: 699px) {
     .icon-arrow-repeat {
+      right: 0;
       top: 175px; } }
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 600px) {
     .icon-arrow-repeat {
       top: 130px; } }
+  @media screen and (max-width: 400px) {
+    .icon-arrow-repeat {
+      top: 100px; } }
 
 .product.slick-current .product__description {
   -webkit-transition: opacity 0.1s, box-shadow 0.5s;
@@ -446,7 +463,10 @@ body.modal-active {
   border: 5px solid #5f7bff;
   box-shadow: 0 40px 50px -20px rgba(0, 0, 0, 0.3);
   opacity: 1;
-  padding: 100px 10px 10px; }
+  padding: 80px 10px 10px; }
+  @media screen and (min-width: 420px) {
+    .product.slick-current .product__description {
+      padding: 100px 10px 10px; } }
   @media screen and (min-width: 700px) {
     .product.slick-current .product__description {
       padding: 100px 15px; } }
@@ -456,7 +476,8 @@ body.modal-active {
 .product.slick-current .icon-arrow-prev,
 .product.slick-current .icon-arrow-next,
 .product.slick-current .icon-arrow-repeat {
-  opacity: 1; }
+  opacity: 1;
+  z-index: 300; }
 
 /* .typed-cursor{
     opacity: 1;

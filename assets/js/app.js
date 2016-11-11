@@ -91,43 +91,51 @@ function init() {
     })
   }
 
-  if($('.js-logo-bar').width() < 950) {
-    $('.js-logo-bar').slick({
-      arrows: false,
-      slidesToShow: 5,
-      slidesToScroll: 1,
-      variableWidth: true,
-      variableHeight: true,
-      responsive: [
-        {
-          breakpoint: 950,
-          settings: {
-            arrows: false,
-            centerMode: true,
-            centerPadding: '40px',
-            initialSlide: 2,
-            slidesToShow: 1,
-            slidesToScroll: 3,
-            autoplay: true,
-            autoplaySpeed: 1500,
-            cssEase: 'ease-out'
+
+  function initLogoBar() {
+    if($('.js-logo-bar').width() < 950) {
+      $('.js-logo-bar').slick({
+        arrows: false,
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        variableWidth: true,
+        variableHeight: true,
+        responsive: [
+          {
+            breakpoint: 950,
+            settings: {
+              arrows: false,
+              centerMode: true,
+              centerPadding: '40px',
+              initialSlide: 2,
+              slidesToShow: 1,
+              slidesToScroll: 3,
+              autoplay: true,
+              autoplaySpeed: 1500,
+              cssEase: 'ease-out'
+            }
+          },
+          {
+            breakpoint: 500,
+            settings: {
+              arrows: false,
+              centerMode: true,
+              centerPadding: '40px',
+              initialSlide: 2,
+              slidesToShow: 1,
+              slidesToScroll: 3,
+              cssEase: 'ease-out'
+            }
           }
-        },
-        {
-          breakpoint: 500,
-          settings: {
-            arrows: false,
-            centerMode: true,
-            centerPadding: '40px',
-            initialSlide: 2,
-            slidesToShow: 1,
-            slidesToScroll: 3,
-            cssEase: 'ease-out'
-          }
-        }
-      ]
-    });
+        ]
+      });
+    }
   }
+
+  initLogoBar();
+
+  $(window).on('resize', initLogoBar());
+
 
 (function startTextRotation() {
   var $textHook = $(".js-text-hook");

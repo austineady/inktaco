@@ -401,12 +401,12 @@ body.modal-active {
   background-color: $white;
   height: 550px;
   opacity: 0;
-  padding-top: 110px;
+  padding: 55px 0;
   max-height: 850px;
   position: relative;
 
   @media screen and (min-width: 500px) {
-    padding-top: 190px;
+    padding: 95px 0;
     height: 760px;
   }
 
@@ -448,18 +448,20 @@ body.modal-active {
 
   &__description {
     background-color: rgba(255, 255, 255, 1);
-    bottom: 120px;
+    bottom: 90px;
     box-shadow: none;
     color: $primary-color;
-    height: 250px;
-    margin: 0 auto;
+    height: 220px;
     left: -5px;
+    margin: 0 auto;
     opacity: 0;
     position: relative;
     text-align: center;
     width: 90%;
 
     @media screen and (min-width: 400px) {
+      bottom: 120px;
+      height: 250px;
       left: 0;
       width: 312px;
     }
@@ -483,13 +485,17 @@ body.modal-active {
   &__image {
     @include transition(top .1s linear);
     margin: 0 auto;
-    width: 100%;
+    width: 80%;
     opacity: .3;
     position: relative;
     top: 100px;
     z-index: 3;
 
-    @media screen and (min-width: 380px) {
+    @media screen and (min-width: 420px) {
+      width: 85%;
+    }
+
+    @media screen and (min-width: 500px) {
       width: 370px;
     }
 
@@ -520,19 +526,24 @@ body.modal-active {
   background-size: contain;
   cursor: pointer;
   height: 40px;
-  left: 0;
+  left: -20px;
   opacity: 0;
   position: absolute;
-  top: 450px;
+  top: 300px;
   width: 40px;
-  z-index: 300;
+  z-index: 0;
 
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 699px) {
+    left: 0;
     top: 175px;
   }
 
-  @media screen and (max-width: 410px) {
+  @media screen and (max-width: 600px) {
     top: 130px;
+  }
+
+  @media screen and (max-width: 410px) {
+    top: 100px;
   }
 }
 
@@ -546,17 +557,22 @@ body.modal-active {
   height: 40px;
   opacity: 0;
   position: absolute;
-  right: 0;
-  top: 450px;
+  right: -20px;
+  top: 300px;
   width: 40px;
-  z-index: 300;
+  z-index: 0;
 
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 699px) {
     top: 175px;
+    right: 0;
+  }
+
+  @media screen and (max-width: 600px) {
+    top: 130px;
   }
 
   @media screen and (max-width: 400px) {
-    top: 130px;
+    top: 100px;
   }
 }
 
@@ -568,16 +584,21 @@ body.modal-active {
   cursor: pointer;
   opacity: 0;
   position: absolute;
-  right: 0;
-  top: 450px;
-  z-index: 300;
+  right: -20px;
+  top: 300px;
+  z-index: 0;
 
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 699px) {
+    right: 0;
     top: 175px;
   }
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 600px) {
     top: 130px;
+  }
+
+  @media screen and (max-width: 400px) {
+    top: 100px;
   }
 }
 
@@ -587,7 +608,11 @@ body.modal-active {
     border: 5px solid $primary-color;
     box-shadow: 0 40px 50px -20px rgba(0, 0, 0, .3);
     opacity: 1;
-    padding: 100px 10px 10px;
+    padding: 80px 10px 10px;
+
+    @media screen and (min-width: 420px) {
+      padding: 100px 10px 10px;
+    }
 
     @media screen and (min-width: 700px) {
       padding: 100px 15px;
@@ -601,6 +626,7 @@ body.modal-active {
   .icon-arrow-next,
   .icon-arrow-repeat {
     opacity: 1;
+    z-index: 300;
   }
 }
 
