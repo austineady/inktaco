@@ -97,7 +97,7 @@ var data = [
     "imageNum": "15"
   },
   {
-    "title": "Driftt",
+    "title": "Drift",
     "type": "Dark Gray Triblend",
     "details": "1 Color Imprint",
     "imageNum": "8"
@@ -109,7 +109,7 @@ var data = [
     "imageNum": "17"
   },
   {
-    "title": "Completed Baked",
+    "title": "Completely Baked",
     "type": "Teal 100% Cotton",
     "details": "1 Color Imprint",
     "imageNum": "20"
@@ -153,64 +153,10 @@ $(document).ready(function() {
   // Start Typed Js Text Rotation
   startTextRotation();
 
-  // Logo bar init
-  // if(window.innerWidth < 1200 && !logoSlickActive) {
-  //   initLogoBar();
-  // } else {
-  //   $('.js-logo-bar').addClass('is-active');
-  // }
   initLogoBar();
   // Clear HTMl and Render Products
   $('#js-product-carousel').html("");
   render(data);
-
-  // Watch Scroll Values
-  watchScroll();
-
-  // Events
-  $(window).on('resize', function(e) {
-    startTextRotation();
-    // if(window.innerWidth < 1200 && !logoSlickActive) {
-    //   initLogoBar();
-    // }
-    //
-    // if(window.innerWidth >= 1200 && logoSlickActive) {
-    //   unslickLogoBar();
-    // }
-  });
-
-
-  // Functions
-  function watchScroll() {
-    var scrollMem = 0;
-    var backgroundY = 0;
-
-    $(window).on('scroll', function() {
-      var scrollTop = $(window).scrollTop();
-      if(scrollTop == 0) {
-        backgroundY = 0;
-      }
-      if(scrollMem == 0) {
-        scrollMem = scrollTop;
-      } else {
-        if(scrollTop > scrollMem && scrollTop < 100) {
-          // scrolling down
-          backgroundY >= -30 ? backgroundY -= 1 : backgroundY = -30;
-          scrollMem = scrollTop;
-        }
-        if(scrollTop < scrollMem && scrollTop > 0) {
-          // scrolling up
-          backgroundY <= 0 ? backgroundY += 1 : backgroundY = 0;
-          scrollMem = scrollTop;
-        }
-      }
-      if(window.innerWidth >= 1100) {
-        $('.js-hero-background').animate({
-          'background-position-y': backgroundY
-        }, 10);
-      }
-    }) // end window.on(scroll)
-  } // end watchScroll
 
   // Typed JS
   // https://github.com/mattboldt/typed.js/
@@ -250,7 +196,7 @@ $(document).ready(function() {
             centerMode: true,
             initialSlide: 2,
             autoplay: true,
-            autoplaySpeed: 1500
+            autoplaySpeed: 2500
           }
         },
         {
@@ -263,7 +209,7 @@ $(document).ready(function() {
             slidesToShow: 1,
             slidesToScroll: 3,
             autoplay: true,
-            autoplaySpeed: 1500
+            autoplaySpeed: 2500
           }
         },
         {
@@ -285,13 +231,6 @@ $(document).ready(function() {
     //logoSlickActive = true;
     $('.js-logo-bar').addClass('is-active');
   } // end initLogoBar()
-
-  // Deconstruct Logo Bar at Large Sizes
-  // function unslickLogoBar() {
-  //   $('.js-logo-bar').removeClass('is-active');
-  //   $('.js-logo-bar').slick('unslick');
-  //   $('.js-logo-bar').addClass('is-active');
-  // }
 
   // Slick JS
   // http://kenwheeler.github.io/slick/
@@ -366,7 +305,6 @@ $(document).ready(function() {
         }
       ]
     });
-
     $('.js-prev-product').on('click', function() {
       $('#js-product-carousel').slick('slickPrev');
     });
