@@ -242,7 +242,7 @@ $(document).ready(function() {
       var repeatArrow = $('<div class="fa fa-repeat icon-arrow-repeat js-first-product"></div>');
 
       // Item HTML jQuery template
-      var item = $('<div class="product"><img src="assets/images/product-image-'+ product.imageNum +'.png" alt="'+product.title+' Product" class="product__image"><div class="product__description"><h4 class="product__title">'+product.title+'</h4><h5 class="product__type">'+product.type+'</h5><h5 class="product__details">'+product.details+'</h5><a href="mailto:andy@inktaco.com?subject=Interested&nbsp;in&nbsp;Custom&nbsp;Apparel" class="product__contact">Contact us about a similar product</a></div></div>');
+      var item = $('<div class="product"><img src="assets/images/product-image-'+ product.imageNum +'.png" alt="'+product.title+' Product" class="product__image"><div class="product__description"><h4 class="product__title">'+product.title+'</h4><h5 class="product__type">'+product.type+'</h5><h5 class="product__details">'+product.details+'</h5><a href="mailto:andy@inktaco.com?subject=Interested&nbsp;in&nbsp;Custom&nbsp;Apparel" target="_blank" class="product__contact">Contact us about a similar product</a></div></div>');
       if(index < 1) {
         item.append(nextArrow);
         $('#js-product-carousel').append(item);
