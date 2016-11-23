@@ -157,163 +157,167 @@ $(document).ready(function() {
   // Clear HTMl and Render Products
   $('#js-product-carousel').html("");
   render(data);
-
-  // Typed JS
-  // https://github.com/mattboldt/typed.js/
-  function startTextRotation() {
-    var $textHook = $(".js-text-hook");
-    $textHook.typed({
-      strings: ["v-necks", "zip ups", "t-shirts", "hoodies", "tank tops", "zip ups", "t-shirts", "hoodies", "tank tops", "sweatshirts", "apparel"],
-      typeSpeed: 45,
-      backSpeed: 60,
-      startDelay: 1000,
-      backDelay: 2500,
-      loop: false,
-      shuffle: false,
-      showCursor: false
-    });
-  }
-
-  // Logo Bar Slick Settings
-  // http://kenwheeler.github.io/slick/
-  function initLogoBar() {
-    $('.js-logo-bar').slick({
-      slidesToShow: 5,
-      slidesToScroll: 0,
-      variableWidth: true,
-      variableHeight: true,
-      arrows: false,
-      centerPadding: '40px',
-      initialSlide: 5,
-      responsive: [
-        {
-          breakpoint: 1200,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 3,
-            arrows: false,
-            centerPadding: '40px',
-            centerMode: true,
-            initialSlide: 2,
-            autoplay: true,
-            autoplaySpeed: 2500
-          }
-        },
-        {
-          breakpoint: 800,
-          settings: {
-            arrows: false,
-            centerMode: true,
-            centerPadding: '40px',
-            initialSlide: 2,
-            slidesToShow: 1,
-            slidesToScroll: 3,
-            autoplay: true,
-            autoplaySpeed: 2500
-          }
-        },
-        {
-          breakpoint: 500,
-          settings: {
-            arrows: false,
-            centerMode: true,
-            centerPadding: '40px',
-            initialSlide: 2,
-            slidesToShow: 1,
-            slidesToScroll: 3,
-            autoplay: true,
-            autoplaySpeed: 1500,
-            cssEase: 'ease-out'
-          }
-        }
-      ]
-    });
-    //logoSlickActive = true;
-    $('.js-logo-bar').addClass('is-active');
-  } // end initLogoBar()
-
-  // Slick JS
-  // http://kenwheeler.github.io/slick/
-  function render(data) {
-    data.forEach(function(product, index) {
-      // Arrows to be prepended and appended
-      var prevArrow = $('<div class="icon-arrow-prev js-prev-product"></div>');
-      var nextArrow = $('<div class="icon-arrow-next js-next-product"></div>');
-      var repeatArrow = $('<div class="fa fa-repeat icon-arrow-repeat js-first-product"></div>');
-
-      // Item HTML jQuery template
-      var item = $('<div class="product"><img src="assets/images/product-image-'+ product.imageNum +'.png" alt="'+product.title+' Product" class="product__image"><div class="product__description"><h4 class="product__title">'+product.title+'</h4><h5 class="product__type">'+product.type+'</h5><h5 class="product__details">'+product.details+'</h5><a href="mailto:andy@inktaco.com?subject=Interested&nbsp;in&nbsp;Custom&nbsp;Apparel" target="_blank" class="product__contact">Contact us about a similar product</a></div></div>');
-      if(index < 1) {
-        item.append(nextArrow);
-        $('#js-product-carousel').append(item);
-      } else if(index + 1 == data.length) {
-        item.prepend(prevArrow);
-        item.append(repeatArrow);
-        $('#js-product-carousel').append(item);
-      } else {
-        item.prepend(prevArrow);
-        item.append(nextArrow);
-        $('#js-product-carousel').append(item);
-      }
-    }) // end forEach
-
-    $('#js-product-carousel').addClass('is-active');
-    $('#js-product-carousel').slick({
-      arrows: false,
-      centerMode: true,
-      centerPadding: '325px',
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      initialSlide: 0,
-      infinite: false,
-      variableWidth: true,
-      speed: 600,
-      responsive: [
-        {
-          breakpoint: 1000,
-          settings: {
-            centerPadding: '100px'
-          }
-        },
-        {
-          breakpoint: 800,
-          settings: {
-            arrows: false,
-            centerMode: true,
-            centerPadding: '100px',
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            infinite: true,
-            autoplay: true,
-            autoplaySpeed: 2000,
-            cssEase: 'ease-out'
-          }
-        },
-        {
-          breakpoint: 700,
-          settings: {
-            arrows: false,
-            centerMode: true,
-            centerPadding: '0px',
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            infinite: true,
-            autoplay: true,
-            autoplaySpeed: 2000,
-            cssEase: 'ease-out'
-          }
-        }
-      ]
-    });
-    $('.js-prev-product').on('click', function() {
-      $('#js-product-carousel').slick('slickPrev');
-    });
-    $('.js-next-product').on('click', function() {
-      $('#js-product-carousel').slick('slickNext');
-    });
-    $('.js-first-product').on('click', function() {
-      $('#js-product-carousel').slick('slickGoTo', 0, false);
-    })
-  } // end render
-
 })
+
+// Typed JS
+// https://github.com/mattboldt/typed.js/
+function startTextRotation() {
+  var $textHook = $(".js-text-hook");
+  $textHook.typed({
+    strings: ["v-necks", "zip ups", "t-shirts", "hoodies", "tank tops", "zip ups", "t-shirts", "hoodies", "tank tops", "sweatshirts", "apparel"],
+    typeSpeed: 45,
+    backSpeed: 60,
+    startDelay: 1000,
+    backDelay: 2500,
+    loop: false,
+    shuffle: false,
+    showCursor: false
+  });
+}
+
+// Logo Bar Slick Settings
+// http://kenwheeler.github.io/slick/
+function initLogoBar() {
+  $('.js-logo-bar').slick({
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    variableWidth: true,
+    variableHeight: true,
+    centerMode: false,
+    arrows: false,
+    centerPadding: '40px',
+    initialSlide: 5,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 3,
+          arrows: false,
+          centerPadding: '40px',
+          centerMode: true,
+          initialSlide: 2,
+          autoplay: true,
+          autoplaySpeed: 2500
+        }
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: '40px',
+          initialSlide: 2,
+          slidesToShow: 1,
+          slidesToScroll: 3,
+          autoplay: true,
+          autoplaySpeed: 2500
+        }
+      },
+      {
+        breakpoint: 500,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: '40px',
+          initialSlide: 2,
+          slidesToShow: 1,
+          slidesToScroll: 3,
+          autoplay: true,
+          autoplaySpeed: 2500,
+          cssEase: 'ease-out'
+        }
+      }
+    ]
+  });
+  //logoSlickActive = true;
+  $('.js-logo-bar').addClass('is-active');
+} // end initLogoBar()
+
+// Slick JS
+// http://kenwheeler.github.io/slick/
+function render(data) {
+  data.forEach(function(product, index) {
+    // Arrows to be prepended and appended
+    var prevArrow = $('<div class="icon-arrow-prev js-prev-product"></div>');
+    var nextArrow = $('<div class="icon-arrow-next js-next-product"></div>');
+    var repeatArrow = $('<div class="fa fa-repeat icon-arrow-repeat js-first-product"></div>');
+
+    // Item HTML jQuery template
+    var item = $('<div class="product"><img src="assets/images/product-image-'+ product.imageNum +'.png" alt="'+product.title+' Product" class="product__image"><div class="product__description"><h4 class="product__title">'+product.title+'</h4><h5 class="product__type">'+product.type+'</h5><h5 class="product__details">'+product.details+'</h5><a href="mailto:andy@inktaco.com?subject=Interested&nbsp;in&nbsp;Custom&nbsp;Apparel" target="_top" class="product__contact">Contact us about a similar product</a></div></div>');
+    if(index < 1) {
+      item.append(nextArrow);
+      $('#js-product-carousel').append(item);
+    } else if(index + 1 == data.length) {
+      item.prepend(prevArrow);
+      item.append(repeatArrow);
+      $('#js-product-carousel').append(item);
+    } else {
+      item.prepend(prevArrow);
+      item.append(nextArrow);
+      $('#js-product-carousel').append(item);
+    }
+  }) // end forEach
+
+  $('#js-product-carousel').addClass('is-active');
+  $('#js-product-carousel').slick({
+    arrows: false,
+    centerMode: true,
+    centerPadding: '325px',
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    infinite: false,
+    variableWidth: true,
+    speed: 600,
+    responsive: [
+      {
+        breakpoint: 1000,
+        settings: {
+          centerPadding: '100px'
+        }
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: '100px',
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          variableWidth: true,
+          autoplay: true,
+          speed: 600,
+          autoplaySpeed: 2000
+        }
+      },
+      {
+        breakpoint: 700,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: '0px',
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          variableWidth: true,
+          speed: 600,
+          autoplay: true,
+          autoplaySpeed: 2000
+        }
+      }
+    ]
+  });
+
+  // Events
+  $('.js-prev-product').on('click', function() {
+    $('#js-product-carousel').slick('slickPrev');
+  });
+  $('.js-next-product').on('click', function() {
+    $('#js-product-carousel').slick('slickNext');
+  });
+  $('.js-first-product').on('click', function() {
+    $('#js-product-carousel').slick('slickGoTo', 0, false);
+  })
+}
